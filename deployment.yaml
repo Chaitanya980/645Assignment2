@@ -1,0 +1,22 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-form-deployment
+  labels:
+    app: user-form
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: user-form
+  template:
+    metadata:
+      labels:
+        app: user-form
+    spec:
+      containers:
+        - name: user-form
+          image: chaitanyachaudhari07/survey-web-app
+          ports:
+            - containerPort: 80
